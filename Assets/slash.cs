@@ -11,7 +11,7 @@ public class slash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10f;
+        speed = 0.01f;
     }
 
     // Update is called once per frame

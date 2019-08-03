@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     Vector3 mouse;
-    public GameObject slashPrefab;
+    Vector3 mouse2;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +19,15 @@ public class Attack : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(mouse.x + " " + mouse.y + " " + mouse.z);
-            GameObject a = Instantiate(slashPrefab) as GameObject;
-            a.transform.position = transform.position;
-            a.transform.LookAt(mouse);
+            transform.position = new Vector3(mouse.x, mouse.y, -9);
 
+        } else if (Input.GetMouseButton(0))
+        {
+            mouse2 = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            mouse2.Normalize();
+            float rot_z = Mathf.Atan2(mouse2.y, mouse2.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);           
         }
         
-    }
-    Vector3 mousePosition()
-    {
-        return mouse;
     }
 }
