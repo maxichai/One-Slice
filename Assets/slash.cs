@@ -19,6 +19,5 @@ public class slash : MonoBehaviour
     {
         transform.position += transform.forward * Time.deltaTime * speed;
         Destroy(gameObject, 15f);
-        
     }
 }
