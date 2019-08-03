@@ -5,7 +5,7 @@ using UnityEngine;
 public class slash : MonoBehaviour
 {
     private Vector2 screenBounds;
-    public gameObject player;
+    public GameObject player;
     float speed;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,6 @@ public class slash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.GetComponent.mousePosition(), speed);
+        //transform.position = Vector3.MoveTowards(transform.position, player.GetComponent.mousePosition(), speed);
     }
 }
