@@ -5,18 +5,20 @@ using UnityEngine;
 public class slash : MonoBehaviour
 {
     private Vector2 screenBounds;
-    public gameObject player;
+    public GameObject player;
     float speed;
+    private Collision col;
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0.4f;
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        speed = 10f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.GetComponent.mousePosition(), speed);
+        transform.position += transform.forward * Time.deltaTime * speed;
+        Destroy(gameObject, 15f);
+        
     }
 }

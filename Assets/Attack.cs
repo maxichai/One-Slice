@@ -22,6 +22,7 @@ public class Attack : MonoBehaviour
             Debug.Log(mouse.x + " " + mouse.y + " " + mouse.z);
             GameObject a = Instantiate(slashPrefab) as GameObject;
             a.transform.position = transform.position;
+            a.transform.LookAt(mouse);
 
         }
         
