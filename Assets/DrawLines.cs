@@ -42,6 +42,7 @@ public class DrawLines : MonoBehaviour
             lRend = newLineGen.GetComponent<LineRenderer>();
             mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
+            lRend.SetPosition(0, mouse);
         }
         else if (Input.GetMouseButton(0)) {
             mouse2 = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
