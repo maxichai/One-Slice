@@ -18,7 +18,11 @@ public class Destroy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Something hit!");
-        Destroy(gameObject);
+        if (other.name != "Player")
+        {
+            Debug.Log("Something hit!");
+            Destroy(gameObject);
+        }
+        
     }
 }
