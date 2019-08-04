@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5101953388061933759}
-  - component: {fileID: -8086977853090121320}
+  - component: {fileID: -5870955672881054624}
   m_Layer: 0
   m_Name: SlashPoint
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8086977853090121320
+--- !u!114 &-5870955672881054624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5101953388061933757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54fdbb05201e57469d87c29f490ee5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d12a33a427ec144c9d32f2abfa2e808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  slashPrefab: {fileID: 5589376647096019205, guid: 1f83e9223a505584f87e6a3bc96ee7e3,
+    type: 3}
 --- !u!1001 &5101953387463353821
 PrefabInstance:
   m_ObjectHideFlags: 0
