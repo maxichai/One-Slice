@@ -20,16 +20,24 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);               
+            mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
+            transform.position = spawn;
+        } else if (Input.GetMouseButton(0))
+        {
+            mouse2 = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            mouse2.Normalize();
+            float rot_z = Mathf.Atan2(mouse2.y, mouse2.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
         } else if (Input.GetMouseButtonUp(0))
         {
+            /*
             mouse2 = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             mouse2.Normalize();
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
             float rot_z = Mathf.Atan2(mouse2.y, mouse2.x) * Mathf.Rad2Deg;
             a = Instantiate(slashPrefab, spawn, Quaternion.identity);
-            a.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+            a.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90); */
         }
-        
     }
 }
