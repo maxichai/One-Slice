@@ -9,6 +9,6 @@ public class ScoreSetter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        txt.text = "Top score: " + GameMaster.Instance.maxScore;
+        txt.text = "Ninjas killed: " + GameMaster.Instance.maxScore;
     }
 }

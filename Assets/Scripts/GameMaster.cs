@@ -42,6 +42,7 @@ public class GameMaster : MonoBehaviour
 
             if (playerRef != null && playerRef.GetComponent<Character>().Health> 0) {
                 UIController.Instance.successText.SetActive(true);
+                GameMaster.Instance.maxScore += 2;
             }
             else {
                 UIController.Instance.failureText.SetActive(true);

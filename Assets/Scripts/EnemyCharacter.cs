@@ -10,14 +10,25 @@ public class EnemyCharacter : Character
 
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         playerPosition = GameMaster.Instance.playerRef.transform.position;
         rb = GetComponent<Rigidbody2D>();
         gm = GameMaster.Instance;
         gm.enemies.Add(gameObject);
 
-        transform.position = new Vector3(Random.Range(-7, 7), Random.Range(-6, 6), 0);        
+        float x = Random.Range(3f, 7f);
+        float y = Random.Range(3f, 6f);
+
+        if (Random.Range(0, 2) > 0) {
+            x = -x;
+        }
+
+        if (Random.Range(0, 2) > 0) {
+            y = -y;
+        }
+
+        transform.position = new Vector3(x, y, 0);
+        Debug.Log(transform.position);
     }
 
     // Update is called once per frame
@@ -28,7 +39,6 @@ public class EnemyCharacter : Character
     }
 
     public override void Die() {
-        gm.maxScore += 1;
         gm.enemies.Remove(gameObject);
         gm.checkEndCondition();
         base.Die();

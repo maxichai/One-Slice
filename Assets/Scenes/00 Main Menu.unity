@@ -270,7 +270,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Top score: '
+  m_Text: 'Ninjas killed: '
 --- !u!222 &375157915
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -521,6 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxScore: 0
   playerRef: {fileID: 0}
+  enemies: []
 --- !u!1 &1811160044
 GameObject:
   m_ObjectHideFlags: 0
