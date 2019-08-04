@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 1215262131}
   - component: {fileID: 1215262130}
   m_Layer: 5
-  m_Name: Start
+  m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b655cd44052ba4bb6c66f5cffd1db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.5
+  fadeSpeed: 5
 --- !u!114 &1215262131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3564,5 +3564,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 220796460, guid: 8e8b04483d14754469d378bc6218e63d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e8b04483d14754469d378bc6218e63d, type: 3}
