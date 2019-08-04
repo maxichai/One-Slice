@@ -52,6 +52,8 @@ public class DrawLines : MonoBehaviour
             mouse2.Normalize();
             float rot_z = Mathf.Atan2(mouse2.y, mouse2.x) * Mathf.Rad2Deg;
             GameObject a = Instantiate(slashPrefab, spawn, Quaternion.identity);
+            slashPrefab.GetComponent<DamageCollide>().owner = GameMaster.Instance.playerRef.GetComponent<PlayerCharacter>();
+
             a.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
             Destroy(a, 0.3f);
         }

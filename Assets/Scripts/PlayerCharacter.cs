@@ -17,7 +17,8 @@ public class PlayerCharacter : Character
     }
 
     private void Start() {
-        OnHealthChange();
+        //OnHealthChange();
+        GameMaster.Instance.playerRef = gameObject;
     }
 
     public override void OnHealthChange() {
@@ -26,7 +27,7 @@ public class PlayerCharacter : Character
 
     public override void Die() {
         Debug.Log("Advanced dying");
-        Initiate.Fade("00 Main Menu", Color.black, 0.25f);
+        Initiate.Fade("00 Main Menu", Color.black, 1f);
         base.Die();
 
     }
