@@ -20,7 +20,7 @@ public class EnemyCharacter : Character
     {
         //rb.MovePosition((transform.position - player.transform.position)*10);
         
-        rb.AddForce((playerPosition - transform.position ) * 1f);
+//        rb.AddForce((playerPosition - transform.position ) * 1f);
     }
 
     public override void Die() {
