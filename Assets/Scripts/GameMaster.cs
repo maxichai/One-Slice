@@ -39,6 +39,13 @@ public class GameMaster : MonoBehaviour
         //Debug.Log("Enemy count " + enemies.Count);
         if ((enemies.Count == 0 && SceneManager.GetActiveScene().name == "Game 2")|| playerRef.GetComponent<Character>().Health<= 0) {
             enemies.Clear();
+
+            if (playerRef != null && playerRef.GetComponent<Character>().Health> 0) {
+                UIController.Instance.successText.SetActive(true);
+            }
+            else {
+                UIController.Instance.failureText.SetActive(true);
+            }
             Invoke("EndGame", 3);
         }
     }

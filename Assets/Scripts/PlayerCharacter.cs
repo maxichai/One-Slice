@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
-    bool swung = false;
+    public bool swung = false;
     public Animator anim;
 
     public void Attack() {

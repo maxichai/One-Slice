@@ -9,6 +9,8 @@ public class CameraShake : MonoBehaviour
     private float shakeAmount = 0.2f;
     private float decreaseFactor = 2.0f;
     Vector3 originalPos;
+
+    bool swung = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,9 +31,10 @@ public class CameraShake : MonoBehaviour
         {
             shakeDuration = 0f;
             camTransform.localPosition = originalPos;
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && !swung && GameMaster.Instance.playerRef != null)
             {
                 shakeDuration = 1.0f;
+                swung = true;
             }
         }
     }

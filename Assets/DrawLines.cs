@@ -42,7 +42,7 @@ public class DrawLines : MonoBehaviour
             lRend.SetPosition(1, mouse2);
         }
         else if (Input.GetMouseButtonUp(0)) {
-            swung = true;
+            swung= true;
             Destroy(newLineGen);
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
             mouse2 = lRend.GetPosition(1) - spawn;
@@ -90,7 +90,7 @@ public class DrawLines : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!swung) {
+        if (!swung && GameMaster.Instance.playerRef!= null) {
             Swing();
         }        
     }
