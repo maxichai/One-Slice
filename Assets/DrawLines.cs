@@ -14,11 +14,16 @@ public class DrawLines : MonoBehaviour
     GameObject newLineGen;
     LineRenderer lRend;
     GameObject rayTarget;
+    public AudioClip musicClip;
+    public AudioClip musicClip2;
+    public AudioSource musicSource;
+
     // Start is called before the first frame update
     Boolean swung = false;
 
     private void Start()
     {
+        
     }
 
     private void SpawnLineGenerator()
@@ -35,7 +40,6 @@ public class DrawLines : MonoBehaviour
             lRend = newLineGen.GetComponent<LineRenderer>();
             mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
-            lRend.SetPosition(0, spawn);
         }
         else if (Input.GetMouseButton(0)) {
             mouse2 = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
