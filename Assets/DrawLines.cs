@@ -36,6 +36,8 @@ public class DrawLines : MonoBehaviour
 
     public void Swing() {
         if (Input.GetMouseButtonDown(0)) {
+            musicSource.clip = musicClip;
+            musicSource.Play();
             newLineGen = Instantiate(lineGeneratorPrefab);
             lRend = newLineGen.GetComponent<LineRenderer>();
             mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,7 +48,9 @@ public class DrawLines : MonoBehaviour
             lRend.SetPosition(1, mouse2);
         }
         else if (Input.GetMouseButtonUp(0)) {
-            swung= true;
+            musicSource.clip = musicClip2;
+            musicSource.Play();
+            swung = true;
             Destroy(newLineGen);
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
             mouse2 = lRend.GetPosition(1) - spawn;

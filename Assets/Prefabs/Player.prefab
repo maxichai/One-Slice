@@ -133,8 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b9b9c609636604c923898cf2b79876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicClip: {fileID: 8300000, guid: 422dab09275fe5f4cb75d4ba673ffae3, type: 3}
+  musicSource: {fileID: 0}
   spawnOnDeath: {fileID: 1437896476635605317, guid: 0eb87dc3e3ea58943b8ee5ddc15c0857,
     type: 3}
+  swung: 0
   anim: {fileID: 6064071440484983836}
 --- !u!95 &6064071440484983836
 Animator:

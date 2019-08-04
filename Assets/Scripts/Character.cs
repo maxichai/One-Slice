@@ -42,7 +42,6 @@ public class Character : MonoBehaviour
     public virtual void Die() {
         GameObject explosion= Instantiate(spawnOnDeath);
         explosion.transform.position = transform.position;
-
         Destroy(gameObject);
     }
 }

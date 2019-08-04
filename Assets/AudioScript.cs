@@ -9,8 +9,11 @@ public class AudioScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        musicSource.clip = musicClip;
-        musicSource.Play();
+        if (musicSource.clip == null)
+        {
+            musicSource.clip = musicClip;
+            musicSource.Play();
+        }
 
     }
 
