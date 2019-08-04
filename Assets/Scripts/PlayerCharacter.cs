@@ -5,13 +5,6 @@ using UnityEngine;
 public class PlayerCharacter : Character
 {
     public Animator anim;
-    public override void OnHealthChange() {
-        base.OnHealthChange();
-
-        if (Health <= 0) {
-            Initiate.Fade("00 Main Menu", Color.black, 0.5f);
-        }
-    }
 
     public void Attack() {
         anim.SetTrigger("Attack");
@@ -21,5 +14,20 @@ public class PlayerCharacter : Character
         if (Input.GetMouseButtonUp(0)) {
             Attack();
         }
+    }
+
+    private void Start() {
+        OnHealthChange();
+    }
+
+    public override void OnHealthChange() {
+        base.OnHealthChange();
+    }
+
+    public override void Die() {
+        Debug.Log("Advanced dying");
+        Initiate.Fade("00 Main Menu", Color.black, 0.25f);
+        base.Die();
+
     }
 }

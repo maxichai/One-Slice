@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public GameObject spawnOnDeath; 
+
     private int health = 1;
     private int maxHealth = 1;
     public int Health {
@@ -33,7 +35,14 @@ public class Character : MonoBehaviour
 
     public virtual void OnHealthChange() {
         if (health <= 0) {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    public virtual void Die() {
+        GameObject explosion= Instantiate(spawnOnDeath);
+        explosion.transform.position = transform.position;
+
+        Destroy(gameObject);
     }
 }
