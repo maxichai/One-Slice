@@ -32,6 +32,7 @@ public class PlayerCharacter : Character
     public override void Die() {
         //Debug.Log("Advanced dying");
         GameMaster.Instance.checkEndCondition();
+        GameMaster.Instance.maxScore = 0; //resets your kills
         base.Die();
     }
 }
