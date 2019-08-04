@@ -31,9 +31,18 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    private void Update() {
-        if (enemies.Count== 0 && SceneManager.GetActiveScene().name=="Game 2") {
-            Initiate.Fade("00 Main Menu", Color.black, 0.5f);
+    public void EndGame() {
+        Initiate.Fade("00 Main Menu", Color.black, 1f);
+    }
+
+    public void checkEndCondition() {
+        //Debug.Log("Enemy count " + enemies.Count);
+        if ((enemies.Count == 0 && SceneManager.GetActiveScene().name == "Game 2")|| playerRef.GetComponent<Character>().Health<= 0) {
+            enemies.Clear();
+            Invoke("EndGame", 3);
         }
+    }
+
+    private void Update() {
     }
 }

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DamageCollide : MonoBehaviour
 {    
-    [HideInInspector]
+    //[HideInInspector]
     public Character owner;
+    public Animator anim;
+
 
     private void Start() { //Check if this is the kamikaze dude
         Character c = GetComponent<Character>();
@@ -18,10 +20,18 @@ public class DamageCollide : MonoBehaviour
         Character c = collider.gameObject.GetComponent<Character>();
 
         if (c != null && owner != null) {
-            Debug.Log("Owner: " + owner + ", collided with " + c.name);
-            if (c.gameObject != owner.gameObject) {
-                Debug.Log("Destroyed: " + c.name);
-                c.Health -= 10;
+            Debug.Log(name + ", owner: " + owner + ", collided with " + c.name);
+
+            //if (c.gameObject != owner.gameObject) {
+            if (c.gameObject == GameMaster.Instance.playerRef) {
+                //Debug.Log("Destroyed: " + c.name);
+                Debug.Log("Anim " + anim);
+                if (anim != null) {
+                    anim.SetTrigger("Attack");
+                }
+                c.Health -= 1;
+
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
     }

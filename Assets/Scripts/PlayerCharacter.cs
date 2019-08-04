@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
+    bool swung = false;
     public Animator anim;
 
     public void Attack() {
@@ -12,13 +13,16 @@ public class PlayerCharacter : Character
 
     void Update() {
         if (Input.GetMouseButtonUp(0)) {
-            Attack();
+            if (!swung) {
+                Attack();
+                swung = true;
+            }
         }
     }
 
     private void Start() {
         //OnHealthChange();
-        GameMaster.Instance.playerRef = gameObject;
+        GameMaster.Instance.playerRef = gameObject;       
     }
 
     public override void OnHealthChange() {
@@ -26,9 +30,8 @@ public class PlayerCharacter : Character
     }
 
     public override void Die() {
-        Debug.Log("Advanced dying");
-        Initiate.Fade("00 Main Menu", Color.black, 1f);
+        //Debug.Log("Advanced dying");
+        GameMaster.Instance.checkEndCondition();
         base.Die();
-
     }
 }

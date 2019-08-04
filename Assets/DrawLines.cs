@@ -15,6 +15,8 @@ public class DrawLines : MonoBehaviour
     LineRenderer lRend;
     GameObject rayTarget;
     // Start is called before the first frame update
+    Boolean swung = false;
+
     private void Start()
     {
     }
@@ -27,24 +29,20 @@ public class DrawLines : MonoBehaviour
         lRend.SetPosition(0, new Vector3(0, 0, 0));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
+    public void Swing() {
+        if (Input.GetMouseButtonDown(0)) {
             newLineGen = Instantiate(lineGeneratorPrefab);
             lRend = newLineGen.GetComponent<LineRenderer>();
             mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
             lRend.SetPosition(0, spawn);
         }
-        else if (Input.GetMouseButton(0))
-        {
+        else if (Input.GetMouseButton(0)) {
             mouse2 = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             lRend.SetPosition(1, mouse2);
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
+        else if (Input.GetMouseButtonUp(0)) {
+            swung = true;
             Destroy(newLineGen);
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
             mouse2 = lRend.GetPosition(1) - spawn;
@@ -64,32 +62,36 @@ public class DrawLines : MonoBehaviour
             RaycastHit2D hit2 = Physics2D.Raycast(mouse, mouse2 * -1, 100);
             // Debug.DrawRay(mouse, mouse2*100, Color.blue, 10f);
             // Debug.DrawRay(mouse, mouse2 * -100, Color.blue, 10f);
-            if (hit.collider != null)
-            {
+            if (hit.collider != null) {
                 Debug.Log("Detected someone!");
                 RaycastHit2D[] hitarr = Physics2D.RaycastAll(mouse, mouse2, 100, layerMask);
                 Debug.Log("I see " + hitarr.Length + " targets.");
-                for (int i = 0; i < hitarr.Length; i++)
-                {
+                for (int i = 0; i < hitarr.Length; i++) {
                     rayTarget = hitarr[i].collider.gameObject;
-                    Debug.Log("Destroying " + rayTarget.name + ".");
-                    Character c = rayTarget.GetComponent<Character>();
-                    c.Health -= 10;
-                }                
-            }
-            if (hit2.collider != null)
-            {
-                Debug.Log("Detected someone!");
-                RaycastHit2D[] hitarr2 = Physics2D.RaycastAll(mouse, mouse2*-1, 100, layerMask);
-                Debug.Log("I see " + hitarr2.Length + " targets.");
-                for (int i = 0; i < hitarr2.Length; i++)
-                {
-                    rayTarget = hitarr2[i].collider.gameObject;
                     Debug.Log("Destroying " + rayTarget.name + ".");
                     Character c = rayTarget.GetComponent<Character>();
                     c.Health -= 10;
                 }
             }
+            if (hit2.collider != null) {
+                //Debug.Log("Detected someone!");
+                RaycastHit2D[] hitarr2 = Physics2D.RaycastAll(mouse, mouse2 * -1, 100, layerMask);
+                //Debug.Log("I see " + hitarr2.Length + " targets.");
+                for (int i = 0; i < hitarr2.Length; i++) {
+                    rayTarget = hitarr2[i].collider.gameObject;
+                    //Debug.Log("Destroying " + rayTarget.name + ".");
+                    Character c = rayTarget.GetComponent<Character>();
+                    c.Health -= 10;
+                }
+            }
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!swung) {
+            Swing();
+        }        
     }
 }
