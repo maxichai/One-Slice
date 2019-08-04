@@ -47,9 +47,9 @@ public class DrawLines : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             Destroy(newLineGen);
-            mouse2 = lRend.GetPosition(1);
-            mouse2.Normalize();
             Vector3 spawn = new Vector3(mouse.x, mouse.y, -9);
+            mouse2 = lRend.GetPosition(1) - spawn;
+            mouse2.Normalize();
             float rot_z = Mathf.Atan2(mouse2.y, mouse2.x) * Mathf.Rad2Deg;
             GameObject a = Instantiate(slashPrefab, spawn, Quaternion.identity);
             a.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
