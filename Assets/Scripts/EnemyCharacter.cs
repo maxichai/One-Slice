@@ -23,9 +23,8 @@ public class EnemyCharacter : Character
     // Update is called once per frame
     void Update()
     {
-        //rb.MovePosition((transform.position - player.transform.position)*10);
-        
-//        rb.AddForce((playerPosition - transform.position ) * 1f);
+        //rb.MovePosition((transform.position - player.transform.position)*10);        
+        rb.AddForce((playerPosition - transform.position ) * 1f);
     }
 
     public override void Die() {
